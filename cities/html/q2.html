@@ -1,0 +1,39 @@
+
+<!DOCTYPE html>
+<link class="jsbin" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/base/jquery-ui.css" rel="stylesheet" type="text/css" />
+<script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.0/jquery-ui.min.js"></script>
+<meta charset=utf-8 />
+<html>
+<body>
+
+<form action = "http://localhost:5000/uploader" method = "POST"
+      enctype = "multipart/form-data" style="position: static">
+    <input type = "file" name = "file" onchange="readURL(this)"/>
+
+
+    <!--<input type = "submit" onclick="readURL()"/>-->
+</form>
+<script>
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                $('#myImg')
+                    .attr('src', e.target.result)
+                    .width(400)
+                    .height(400);
+
+            };
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+</script>
+<br>
+<br>
+<br>
+<img id="myImg" style="left: 10px; top: 100px">
+</body>
+</html>

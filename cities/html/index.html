@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Image Tags</title>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <style>
+        #map {
+            height: 100vh;
+            width: 100%;
+        }
+        body
+        {
+            background-color: gray;
+
+        }
+    </style>
+</head>
+<body>
+
+<div id="map"></div>
+<!--<a id="google" href="www.google.com"></a>-->
+<script type="text/javascript">
+    function initMap() {
+        var pos = [{name:"Uttar Pradesh",lat: 26.8467, lng: 80.9462},{name:"Delhi",lat: 28.7041, lng: 77.1025},{name:"Tamil Nadu",lat: 11.1271, lng: 78.6569},{name:"Jammu and Kashmir",lat: 34.083656, lng: 74.797371},{name:"Goa",lat: 15.2993, lng: 74.1240}];
+        var map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 4,
+            center: pos[0]
+        });
+        var marker = [new google.maps.Marker({
+            position: pos[0],
+            map: map,
+            title:pos[0].name
+        }),new google.maps.Marker({
+            position: pos[1],
+            map: map,
+            title:pos[1].name
+        }),new google.maps.Marker({
+            position: pos[2],
+            map: map,
+            title:pos[2].name
+        }),new google.maps.Marker({
+            position: pos[3],
+            map: map,
+            title:pos[3].name
+        }),new google.maps.Marker({
+            position: pos[4],
+            map: map,
+            title:pos[4].name,
+
+        })];
+        marker[0].addListener('click',function () {
+            var link=document.createElement("a");
+            link.href="up.html"
+            // link.target="_self"
+            // d.appendChild(link)
+            window.open(link.href,"_self")
+            // map.setZoom(8)
+        })
+        marker[1].addListener('click',function () {
+            var link=document.createElement("a");
+            link.href="Delhi.html"
+            // link.target="_self"
+            // d.appendChild(link)
+            window.open(link.href,"_self")
+            // map.setZoom(8)
+        })
+
+        marker[2].addListener('click',function () {
+            var link=document.createElement("a");
+            link.href="TN.html"
+            // link.target="_self"
+            // d.appendChild(link)
+            window.open(link.href,"_self")
+            // map.setZoom(8)
+        })
+        marker[3].addListener('click',function () {
+            var link=document.createElement("a");
+            link.href="jk.html"
+            // link.target="_self"
+            // d.appendChild(link)
+            window.open(link.href,"_self")
+            // map.setZoom(8)
+        })
+        marker[4].addListener('click',function () {
+            var link=document.createElement("a");
+            link.href="goa.html"
+            // link.target="_self"
+            // d.appendChild(link)
+            window.open(link.href,"_self")
+            // map.setZoom(8)
+        })
+        // marker.show
+    }
+    // initMap()
+</script>
+<script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCnF0WMs7S85rruf_yeExEEinl1LQIxXzc&callback=initMap">
+</script>
+</body>
+</html>
